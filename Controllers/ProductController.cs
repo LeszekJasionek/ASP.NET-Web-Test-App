@@ -57,5 +57,13 @@ namespace web_test_app.Controllers
 
         }
 
+        public IActionResult Data()
+        {
+            ViewBag.Name= "Jarek";
+            // ViewData[""] = "";
+            // TempData[""] = "";
+
+            return View();
+        }
     }
 }

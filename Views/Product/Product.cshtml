@@ -1,0 +1,37 @@
+﻿@model web_test_app.Models.Product
+
+
+@{
+    ViewData["Title"] = "Product";
+}
+
+<h1>Product</h1>
+
+<p>@Model.Id</p>
+<p>@Model.Name</p>
+<p>@Model.Description</p>
+<p>@Model.Category</p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+    </tr>
+    <tr>
+        <td>Row 1, Column 1</td>
+        <td>Row 1, Column 2</td>
+        <td>Row 1, Column 3</td>
+    </tr>
+    <tr>
+        <td>Row 2, Column 1</td>
+        <td>Row 2, Column 2</td>
+        <td>Row 2, Column 3</td>
+    </tr>
+    <tr>
+        <td>Row 3, Column 1</td>
+        <td>Row 3, Column 2</td>
+        <td>Row 3, Column 3</td>
+    </tr>
+</table>

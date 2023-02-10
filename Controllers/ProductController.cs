@@ -59,9 +59,9 @@ namespace web_test_app.Controllers
 
         public IActionResult Data()
         {
-            ViewBag.Name= "Jarek";
-            ViewData["Surname"] = "Kowalski";
-            // TempData[""] = "";
+            ViewBag.Name= "Jan";
+            ViewData["Surname"] = "Jansen";
+            TempData["SecondName"] = "Pieter";
 
             return View();
         }

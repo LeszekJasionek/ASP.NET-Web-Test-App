@@ -1,7 +1,30 @@
-﻿
+﻿@model IEnumerable<web_test_app.Models.Product>
+
+
 @{
     ViewData["Title"] = "List";
 }
 
 <h1>List</h1>
 
+<ul>
+    @foreach (var product in Model)
+    {
+        <li>@product.Id - @product.Name - @product.Category - @product.Description</li>
+
+
+    }
+</ul>
+
+
+
+
+<h2>Condition - only cars</h2>
+
+<ul>
+
+    @foreach (var car in Model.Where(c => c.Category == "Car").ToList())
+    {
+        <li>@car.Id - @car.Name - @car.Category - @car.Description</li>
+    }
+</ul>

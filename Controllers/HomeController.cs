@@ -28,7 +28,5 @@ namespace web_test_app.Controllers
             return View();
         }
 
-        public IActionResult
-
     }
 }

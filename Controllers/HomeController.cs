@@ -23,6 +23,8 @@ namespace web_test_app.Controllers
             return View();
         }
 
+
+        [Route("test-route/{name}")]
         public IActionResult Product(string name)
         {
             return View();

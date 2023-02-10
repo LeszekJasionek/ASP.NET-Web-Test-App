@@ -60,7 +60,7 @@ namespace web_test_app.Controllers
         public IActionResult Data()
         {
             ViewBag.Name= "Jarek";
-            // ViewData[""] = "";
+            ViewData["Surname"] = "Kowalski";
             // TempData[""] = "";
 
             return View();

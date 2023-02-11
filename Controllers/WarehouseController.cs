@@ -62,7 +62,7 @@ namespace web_test_app.Controllers
             return View(product);
         }
 
-        [HttpDelete]
+        [HttpPost]
         public IActionResult Delete(int id)
         {
             var product = _warehouseService.Delete(id);

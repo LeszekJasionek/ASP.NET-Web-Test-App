@@ -5,5 +5,6 @@ namespace web_test_app.Models
 {
     public class UserModel : IdentityUser
     {
+
     }
 }

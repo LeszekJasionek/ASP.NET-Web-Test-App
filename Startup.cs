@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using web_test_app.Services;
 using web_test_app.Services.Interfaces;
+using web_test_app.Models;
 
 namespace web_test_app
 {
@@ -36,6 +37,17 @@ namespace web_test_app
             {
                 builder.UseSqlServer("Server=KOMPUTER02\\SERVERMAIN;Database=WebTestAppDB;Trusted_Connection=True;TrustServerCertificate=true");
             });
+
+            services.AddIdentityCore<UserModel>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 2;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+
+            }).AddEntityFrameworkStores<DbTestContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

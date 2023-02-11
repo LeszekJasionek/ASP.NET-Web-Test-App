@@ -4,6 +4,7 @@ namespace web_test_app.Models
 {
     public class Product
     {
+        [Key]
         public int Id { get; set; }
         [Required(ErrorMessage = "A Field 'Name' must be filled")]
         public string Name { get; set; }

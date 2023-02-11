@@ -1,0 +1,17 @@
+﻿@model IEnumerable<web_test_app.Models.Product>
+
+<h1>List of products</h1>
+
+<ol>
+        @foreach(var product in Model)
+        {
+        <li><b>@product.Name </b> - @product.Category
+            <button>Details</button>
+            <button>Delete</button>
+        
+        
+        </li>
+        }
+
+
+</ol>

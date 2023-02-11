@@ -9,12 +9,5 @@
 
 <h1>Form adding a product to the warehouse</h1>
 
-@using (Html.BeginForm("Add", "Warehouse", FormMethod.Post))
-{
-    @Html.ValidationSummary
-    <span>Product's name: </span>@Html.TextBoxFor(x => x.Name)
-    <span>Description: </span>@Html.TextBoxFor(x => x.Description)
-    <span>Category: </span>@Html.TextBoxFor(x => x.Category)
+@Html.Partial("_AddProductForm", Model)
 
-    <button type="submit">Submit the form</button>
-}

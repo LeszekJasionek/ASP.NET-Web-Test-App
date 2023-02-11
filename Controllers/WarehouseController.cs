@@ -19,6 +19,9 @@ namespace web_test_app.Controllers
         [HttpPost]
         public IActionResult Add(Product body)
         {
+
+            // logic to write to the product model
+
             return View();
         }
 

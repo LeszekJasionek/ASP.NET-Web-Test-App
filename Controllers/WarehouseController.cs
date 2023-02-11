@@ -22,7 +22,7 @@ namespace web_test_app.Controllers
 
             // logic to write to the product model
 
-            return View();
+            return RedirectToAction("Add");
         }
 
     }

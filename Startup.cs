@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using web_test_app.Services;
+using web_test_app.Services.Interfaces;
 
 namespace web_test_app
 {
@@ -26,6 +28,8 @@ namespace web_test_app
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddScoped<IWarehouseService, WarehouseService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

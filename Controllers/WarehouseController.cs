@@ -1,10 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using web_test_app.Models;
+using web_test_app.Services.Interfaces;
 
 namespace web_test_app.Controllers
 {
     public class WarehouseController : Controller
     {
+        private readonly IWarehouseService _warehouseService;
+        public WarehouseController(IWarehouseService warehouseService)
+        {
+            _warehouseService = warehouseService;
+        }
+
+        
+
         public IActionResult Index()
         {
             return View();
@@ -13,6 +22,7 @@ namespace web_test_app.Controllers
         [HttpGet]
         public IActionResult Add()
         {
+            
             return View();
         }
 
@@ -29,9 +39,11 @@ namespace web_test_app.Controllers
                 //the user will keep the data that he has already entered and the data will be entered into the form again.
             }
 
-            
-
             // logic to write to the product model
+
+            var id = _warehouseService.Save(body);
+
+            TempData["ProductId"] = id;
 
             return RedirectToAction("Add");
         }

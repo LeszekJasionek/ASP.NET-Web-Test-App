@@ -1,11 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using web_test_app.Models;
+using web_test_app.Services.Interfaces;
 
 namespace web_test_app.Controllers
 {
     public class ProductController : Controller
     {
+        private readonly IWarehouseService _warehouseService;
+        public ProductController(IWarehouseService warehouseService)
+        {
+            _warehouseService = warehouseService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -27,31 +34,7 @@ namespace web_test_app.Controllers
 
         public IActionResult List()
         {
-            var productList = new List<Product>
-            {
-                new Product
-                {
-                    Id = 1,
-                    Category = "Car",
-                    Description = "It's a nice car",
-                    Name = "BMW M5"
-                },
-                new Product
-                {
-                    Id = 2,
-                    Category = "Drinks",
-                    Description = "It is very refreshing",
-                    Name = "VW Golf 8"
-                },
-                new Product
-                {
-                    Id = 3,
-                    Category = "Plant",
-                    Description = "It's a prickly plant ",
-                    Name = "The Cactus"
-                },
-
-            };
+            var productList = _warehouseService.GetAll();
 
             return View(productList);
 

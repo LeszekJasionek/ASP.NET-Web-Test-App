@@ -8,7 +8,7 @@ namespace web_test_app.Services
         public int Save(Product product)
         {
             // logic to write data into DB
-            return 2;
+            return 1;
         }
     }
 }

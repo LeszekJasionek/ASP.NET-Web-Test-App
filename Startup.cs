@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using web_test_app.Services;
 using web_test_app.Services.Interfaces;
 using web_test_app.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace web_test_app
 {
@@ -32,13 +33,14 @@ namespace web_test_app
             services.AddControllersWithViews();
 
             services.AddScoped<IWarehouseService, WarehouseService>();
+            services.AddScoped<IApiService, ApiService>();
 
             services.AddDbContext<DbTestContext>(builder =>
             {
                 builder.UseSqlServer("Server=KOMPUTER02\\SERVERMAIN;Database=WebTestAppDB;Trusted_Connection=True;TrustServerCertificate=true");
             });
 
-            services.AddIdentityCore<UserModel>(options =>
+            services.AddIdentity<UserModel, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = false;
                 options.Password.RequiredLength = 2;
@@ -67,6 +69,8 @@ namespace web_test_app
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

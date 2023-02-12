@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using web_test_app.Models;
 using web_test_app.Services.Interfaces;
 
 namespace web_test_app.Controllers
 {
+    [Authorize]
     public class WarehouseController : Controller
     {
         private readonly IWarehouseService _warehouseService;

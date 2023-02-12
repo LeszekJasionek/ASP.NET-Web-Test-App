@@ -8,10 +8,12 @@ namespace web_test_app.Controllers
     public class AccountController : Controller
     {
         private readonly UserManager<UserModel> _userManager;
+        private readonly SignInManager<UserModel> _signInManager;
 
-        public AccountController(UserManager<UserModel> userManager)
+        public AccountController(UserManager<UserModel> userManager, SignInManager<UserModel> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [HttpGet]
@@ -21,7 +23,7 @@ namespace web_test_app.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(Login userLoginData)
+        public async Task<IActionResult> Login(Login userLoginData)
         {
             if(!ModelState.IsValid)
             {
@@ -29,6 +31,9 @@ namespace web_test_app.Controllers
             }
 
             // logic that logging
+
+            await _signInManager.PasswordSignInAsync(userLoginData.UserName, userLoginData.Password, false, false);
+
 
             return RedirectToAction("Index", "Home");
         }
@@ -62,10 +67,12 @@ namespace web_test_app.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        [HttpGet]
-        public IActionResult LogOut()
+        
+        public async Task<IActionResult> LogOut()
         {
-            return View();
+            await _signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
         }
 
     }
